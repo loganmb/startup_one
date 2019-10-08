@@ -35,6 +35,8 @@ dependencies {
 
     implementation 'com.google.android.material:material:1.0.0'
 
+    implementation 'com.google.firebase:firebase-auth:19.0.0'
+
     //Biblioteca para adicionar lista performatica ao aplicativo
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     //Biblioteca para consumir webservice
