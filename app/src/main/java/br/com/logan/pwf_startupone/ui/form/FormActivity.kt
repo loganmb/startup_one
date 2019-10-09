@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.com.logan.pwf_startupone.R
 import br.com.logan.pwf_startupone.model.user.Usuario
-import br.com.logan.pwf_startupone.controllers.ControllerCadastro
+import br.com.logan.pwf_startupone.repository.RepositoryUsuario
 import kotlinx.android.synthetic.main.activity_form.*
 
 class FormActivity : AppCompatActivity() {
@@ -22,7 +22,7 @@ class FormActivity : AppCompatActivity() {
                 "", "", "", "", "", "", "", ""
             )
 
-            val cadastro = ControllerCadastro()
+            val cadastro = RepositoryUsuario()
             cadastro.save(user)
         }
 
