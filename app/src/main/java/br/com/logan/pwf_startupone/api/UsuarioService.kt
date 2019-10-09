@@ -8,7 +8,7 @@ import retrofit2.http.*
 interface UsuarioService {
 
     @POST("")
-    fun createUser(@Body user : Usuario)
+    fun postUser(@Body user : Usuario)
 
     @GET("")
     fun getUser() : Call<UsuarioResponse>
