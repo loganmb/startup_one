@@ -11,13 +11,31 @@ interface UsuarioService {
     @GET("/health")
     fun checkHealth(): Call<HealthResponse>
 
-    @POST("")
-    fun postUser(@Body user : Usuario)
+    @GET("/cliente/cpf/{cpf}")
+    fun getUserByCpf(
+        @Path("cpf") cpf: String
+    ): Call<Usuario>
 
-    @GET("")
-    fun getUser() : Call<UsuarioResponse>
+    @GET("/cliente/cpf/{nome}")
+    fun getUserByNome(
+        @Path("nome") nome: String
+    ): Call<Usuario>
 
-    @PUT
-    fun updateUser(@Body usuario : Usuario) : Call<Usuario>
+    @GET("/cliente/all")
+    fun getAllUsers(): Call<UsuarioResponse>
+
+    @POST("/cliente/add")
+    fun createUser(@Body user: Usuario)
+
+    @PATCH("/cliente/update/{cpf}")
+    fun updateUser(
+        @Path("cpf") cpf: String,
+        @Body usuario: Usuario
+    ): Call<Usuario>
+
+    @DELETE("/cliente/delete/{cpf}")
+    fun deleteUser(
+        @Path("cpf") cpf: String
+    )
 
 }
