@@ -6,6 +6,7 @@ import br.com.logan.pwf_startupone.model.user.Usuario
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 
 class RepositoryUsuarioImpl(val usuarioService: UsuarioService) : RepositoryUsuario {
 
@@ -25,17 +26,75 @@ class RepositoryUsuarioImpl(val usuarioService: UsuarioService) : RepositoryUsua
             })
     }
 
-    override fun getUsuarios(
-        size: Int,
-        sort: String,
-        onComplete: (List<Usuario>) -> Unit,
-        onError: (Throwable) -> Unit
+    override fun getUserByCpf(
+        cpf: String,
+        onComplete: (Usuario?) -> Unit,
+        onError: (Throwable?) -> Unit
+    ) {
+        usuarioService
+            .getUserByCpf(cpf)
+            .enqueue(object : Callback<Usuario> {
+                override fun onFailure(call: Call<Usuario>, t: Throwable) {
+                    onError(t)
+                }
+
+                override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+                    if (response.isSuccessful) {
+                        onComplete(response.body())
+                    } else {
+                        onError(Throwable("Não foi possível realizar a requisição"))
+                    }
+                }
+            })
+    }
+
+    override fun getUserByNome(
+        nome: String,
+        onComplete: (Usuario?) -> Unit,
+        onError: (Throwable?) -> Unit
+    ) {
+        usuarioService
+            .getUserByNome(nome)
+            .enqueue(object : Callback<Usuario> {
+                override fun onFailure(call: Call<Usuario>, t: Throwable) {
+                    onError(t)
+                }
+
+                override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+                    if (response.isSuccessful) {
+                        onComplete(response.body())
+                    } else {
+                        onError(Throwable("Não foi possível realizar a requisição"))
+                    }
+                }
+            })
+    }
+
+    override fun getAllUsers(onComplete: (List<Usuario>?) -> Unit, onError: (Throwable?) -> Unit) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun createUser(
+        usuario: Usuario,
+        onComplete: (Usuario?) -> Unit,
+        onError: (Throwable?) -> Unit
     ) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun postUsuario() {
+    override fun updateUser(
+        usuario: Usuario,
+        onComplete: (Usuario?) -> Unit,
+        onError: (Throwable?) -> Unit
+    ) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+    override fun deleteUser(
+        usuario: Usuario,
+        onComplete: (Usuario?) -> Unit,
+        onError: (Throwable?) -> Unit
+    ) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }

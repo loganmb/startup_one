@@ -1,7 +1,5 @@
 package br.com.logan.pwf_startupone.model.user
 
-import java.util.*
-
 data class Usuario(
     val name : String,
     val email : String,

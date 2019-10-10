@@ -9,14 +9,36 @@ interface RepositoryUsuario {
         onError: (Throwable?) -> Unit
     )
 
-    fun getUsuarios(
-        size: Int,
-        sort: String,
+    fun getUserByCpf(
+        cpf: String,
+        onComplete: (Usuario?) -> Unit,
+        onError: (Throwable?) -> Unit
+    )
+
+    fun getUserByNome(
+        nome: String,
+        onComplete: (Usuario?) -> Unit,
+        onError: (Throwable?) -> Unit
+    )
+
+    fun getAllUsers(
         onComplete: (List<Usuario>?) -> Unit,
         onError: (Throwable?) -> Unit
     )
 
-    fun postUsuario(
+    fun createUser(
+        usuario: Usuario,
+        onComplete: (Usuario?) -> Unit,
+        onError: (Throwable?) -> Unit
+    )
+
+    fun updateUser(
+        usuario: Usuario,
+        onComplete: (Usuario?) -> Unit,
+        onError: (Throwable?) -> Unit
+    )
+
+    fun deleteUser(
         usuario: Usuario,
         onComplete: (Usuario?) -> Unit,
         onError: (Throwable?) -> Unit
