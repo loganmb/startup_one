@@ -23,19 +23,19 @@ class LoginActivity : AppCompatActivity() {
 
         mAuth.currentUser?.reload()
 
-        if (mAuth.currentUser != null){
+        if (mAuth.currentUser != null) {
             goToHome()
         }
-        btLogin.setOnClickListener{
+        btLogin.setOnClickListener {
             mAuth.signInWithEmailAndPassword(
                 inputLoginEmail.text.toString(),
                 inputLoginPassword.text.toString()
-            ).addOnCompleteListener{
-                if(it.isSuccessful){
+            ).addOnCompleteListener {
+                if (it.isSuccessful) {
                     goToHome()
-                }
-                else {
-                    Toast.makeText(this@LoginActivity, it.exception?.message, Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this@LoginActivity, it.exception?.message, Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
         }
@@ -47,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToHome() {
-        val intent = Intent(this, FormActivity:: class.java)
+        val intent = Intent(this, FormActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
         finish()
@@ -55,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onActivityResult(resquestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(resquestCode, resultCode, data)
-        if(resquestCode == newUserRequestCode && resultCode == Activity.RESULT_OK) {
+        if (resquestCode == newUserRequestCode && resultCode == Activity.RESULT_OK) {
             inputLoginEmail.setText(data?.getStringExtra("email"))
         }
     }

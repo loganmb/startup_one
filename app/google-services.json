@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "533653294507",
+    "firebase_url": "https://startupone-c9465.firebaseio.com",
+    "project_id": "startupone-c9465",
+    "storage_bucket": "startupone-c9465.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533653294507:android:3d0c995aca686fc2d056ee",
+        "android_client_info": {
+          "package_name": "br.com.logan.pwf_startupone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533653294507-l37d79sn6o8brtju6fs1avvm32lnnlkg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.logan.pwf_startupone",
+            "certificate_hash": "c2f46c111d0455328213d650dd71ad933448fea1"
+          }
+        },
+        {
+          "client_id": "533653294507-m9tvvdj6do5lgjb6udcgtqlgvpsp9dg9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb4ygiGh_UphDkgAmR_FmQ4FtkX7Y4rtU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533653294507-m9tvvdj6do5lgjb6udcgtqlgvpsp9dg9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

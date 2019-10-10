@@ -3,6 +3,12 @@ package br.com.logan.pwf_startupone.repository.usuario
 import br.com.logan.pwf_startupone.model.user.Usuario
 
 interface RepositoryUsuario {
+
+    fun checkHealth(
+        onComplete: () -> Unit,
+        onError: (Throwable?) -> Unit
+    )
+
     fun getUsuarios(
         size: Int,
         sort: String,
@@ -15,4 +21,5 @@ interface RepositoryUsuario {
         onComplete: (Usuario?) -> Unit,
         onError: (Throwable?) -> Unit
     )
+
 }
