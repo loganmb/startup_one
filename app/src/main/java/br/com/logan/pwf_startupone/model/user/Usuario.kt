@@ -4,6 +4,7 @@ data class Usuario(
     val name : String,
     val email : String,
     val birth_date : String,
+    val cpf : String,
     val street : String,
     val number : String,
     val complement : String,

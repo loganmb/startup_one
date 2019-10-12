@@ -12,7 +12,7 @@
             android:theme="@style/FullScreen">
         <activity android:name=".ui.personal_info.BasicInfoActivity">
         </activity>
-        <activity android:name=".ui.form.FormActivity">
+        <activity android:name=".ui.form.FormUsuarioActivity">
         </activity>
         <activity android:name=".ui.delete_account.DeleteAcctActivity">
         </activity>
@@ -27,11 +27,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.main.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
     </application>
 
