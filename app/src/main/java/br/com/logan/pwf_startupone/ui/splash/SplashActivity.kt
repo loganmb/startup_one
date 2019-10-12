@@ -17,7 +17,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class SplashActivity : AppCompatActivity() {
 
-    private val TEMPO_AGUARDO_SPLASHSCREEN = 1500L
+    private val TEMPO_AGUARDO_SPLASHSCREEN = 3500L
 
     val splashViewModel: SplashViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,15 +36,15 @@ class SplashActivity : AppCompatActivity() {
             showLogin()
         }
 
-        splashViewModel.checkHealth()
-        splashViewModel.messageError.observe(this, Observer {
-            if (it == "") {
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
-            } else {
-                Toast.makeText(this, it, Toast.LENGTH_LONG).show()
-            }
-        })
+    //    splashViewModel.checkHealth()
+    //    splashViewModel.messageError.observe(this, Observer {
+    //        if (it == "") {
+    //            startActivity(Intent(this, MainActivity::class.java))
+    //            finish()
+    //        } else {
+    //            Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+    //        }
+    //    })
     }
 
     private fun markAppAlreadyOpen(preferences: SharedPreferences) {
