@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Toast
 import br.com.logan.pwf_startupone.R
 import br.com.logan.pwf_startupone.ui.form.FormUsuarioActivity
+import br.com.logan.pwf_startupone.ui.main.MainActivity
 import br.com.logan.pwf_startupone.ui.singup.SignUpActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
@@ -47,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToHome() {
-        val intent = Intent(this, FormUsuarioActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
         finish()

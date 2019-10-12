@@ -31,10 +31,10 @@ class SignUpActivity : AppCompatActivity() {
             val user = Usuario(
                 txtName.text.toString(),
                 txtEmail.text.toString(),
-                "", "","", "", "", "", "", "", ""
+                "", txtCpf.text.toString(),"", "", "", "", "", "", ""
             )
 
-            singUpViewModel.createUser(user)
+        //    singUpVi ewModel.createUser(user)
             saveInRealTimeDatabase()
 
         }

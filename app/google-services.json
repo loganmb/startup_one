@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "533653294507-gdqgrcfubvq7943h7do85fn9nf4om5i2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.logan.pwf_startupone",
+            "certificate_hash": "7ca961443b82f431d5b8534f9d3dca73c3970bde"
+          }
+        },
+        {
           "client_id": "533653294507-l37d79sn6o8brtju6fs1avvm32lnnlkg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

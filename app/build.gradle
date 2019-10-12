@@ -40,7 +40,6 @@ dependencies {
 
     implementation 'com.google.android.material:material:1.0.0'
 
-    implementation 'com.google.firebase:firebase-auth:19.0.0'
 
     //Biblioteca para adicionar lista performatica ao aplicativo
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
@@ -66,4 +65,5 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-auth:18.0.0'
     implementation 'com.google.firebase:firebase-database:18.0.0'
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'
 }
