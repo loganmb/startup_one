@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import br.com.logan.pwf_startupone.R
+import br.com.logan.pwf_startupone.model.user.EnderecoUsuario
 import br.com.logan.pwf_startupone.model.user.Usuario
 import br.com.logan.pwf_startupone.model.user.UsuarioLogin
 import com.google.firebase.auth.FirebaseAuth
@@ -21,21 +22,41 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class SignUpActivity : AppCompatActivity() {
 
-    val singUpViewModel: SingUpViewModel by viewModel()
+    private val singUpViewModel: SingUpViewModel by viewModel()
+
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sing_up)
+
+
         btCadastrar.setOnClickListener {
 
-            val user = Usuario(
-                txtName.text.toString(),
-                txtEmail.text.toString(),
-                "", txtCpf.text.toString(),"", "", "", "", "", "", ""
-            )
 
-        //    singUpVi ewModel.createUser(user)
-            saveInRealTimeDatabase()
+
+            //    singUpViewModel.createUser(user)
+
+            mAuth = FirebaseAuth.getInstance()
+
+            mAuth.createUserWithEmailAndPassword(
+                txtEmail.text.toString(),
+                txtPassword.text.toString()
+            ).addOnCompleteListener {
+                if (it.isSuccessful) {
+                    saveInRealTimeDatabase()
+                    val userAPI = Usuario(
+                        txtCpf.text.toString(),
+                        txtName.text.toString(),
+                        (FirebaseAuth.getInstance().currentUser!!.uid),
+                        txtEmail.text.toString(), "",
+                        EnderecoUsuario ("", "", "", "", "", "", "")
+                    )
+                    singUpViewModel.createUser(userAPI)
+                } else {
+                    Toast.makeText(this@SignUpActivity, it.exception?.message, Toast.LENGTH_SHORT).show()
+                }
+            }
 
         }
 
@@ -49,16 +70,21 @@ class SignUpActivity : AppCompatActivity() {
     }
 
 
-
-
     private fun saveInRealTimeDatabase() {
-        val user = UsuarioLogin(txtEmail.text.toString(), txtPassword.text.toString(), txtCpf.text.toString())
+        val user = UsuarioLogin(
+            txtEmail.text.toString(),
+            txtPassword.text.toString(),
+            txtCpf.text.toString()
+        )
+
         FirebaseDatabase.getInstance().getReference("Users")
+
             .child(FirebaseAuth.getInstance().currentUser!!.uid)
             .setValue(user)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Toast.makeText(this, "Usuario criado com sucesso", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Usuario criado com sucesso", Toast.LENGTH_SHORT)
+                        .show()
                     val returnIntent = Intent()
                     returnIntent.putExtra("userLogin", user)
                     setResult(RESULT_OK, returnIntent)

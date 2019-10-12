@@ -6,11 +6,11 @@ import br.com.logan.pwf_startupone.model.user.Usuario
 import br.com.logan.pwf_startupone.repository.usuario.RepositoryUsuario
 
 class SingUpViewModel(
-val repositoryUsuario: RepositoryUsuario
+private val repositoryUsuario: RepositoryUsuario
 ) : ViewModel() {
 
-    val isLoading = MutableLiveData<Boolean>()
-    val messageResponse = MutableLiveData<String>()
+    private val isLoading = MutableLiveData<Boolean>()
+    private val messageResponse = MutableLiveData<String>()
 
     fun createUser(user: Usuario) {
         isLoading.value = true

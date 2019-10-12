@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.UserManager
 import androidx.lifecycle.MutableLiveData
 import br.com.logan.pwf_startupone.R
+import br.com.logan.pwf_startupone.model.user.EnderecoUsuario
 import br.com.logan.pwf_startupone.model.user.Usuario
 import br.com.logan.pwf_startupone.repository.usuario.RepositoryUsuarioImpl
 import kotlinx.android.synthetic.main.activity_form.*
@@ -24,7 +25,7 @@ class FormUsuarioActivity : AppCompatActivity() {
             val user = Usuario(
                 txtName.text.toString(),
                 txtEmail.text.toString(),
-                "", "","", "", "", "", "", "", ""
+                "", "","", EnderecoUsuario("", "", "", "", "", "","")
             )
 
             formUsuarioViewModel.createUser(user)

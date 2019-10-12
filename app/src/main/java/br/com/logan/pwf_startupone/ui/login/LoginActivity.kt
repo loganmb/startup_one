@@ -24,9 +24,9 @@ class LoginActivity : AppCompatActivity() {
 
         mAuth.currentUser?.reload()
 
-        if (mAuth.currentUser != null) {
-            goToHome()
-        }
+        //if (mAuth.currentUser != null) {
+        //    goToHome()
+        //}
         btLogin.setOnClickListener {
             mAuth.signInWithEmailAndPassword(
                 inputLoginEmail.text.toString(),
