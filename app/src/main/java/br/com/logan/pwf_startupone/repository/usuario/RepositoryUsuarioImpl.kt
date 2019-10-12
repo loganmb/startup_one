@@ -79,7 +79,21 @@ class RepositoryUsuarioImpl(val usuarioService: UsuarioService) : RepositoryUsua
         onComplete: (Usuario?) -> Unit,
         onError: (Throwable?) -> Unit
     ) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        usuarioService
+            .createUser(usuario)
+            .enqueue(object : Callback<Usuario> {
+                override fun onFailure(call: Call<Usuario>, t: Throwable) {
+                    onError(t)
+                }
+
+                override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+                    if (response.isSuccessful) {
+                        onComplete(response.body())
+                    } else {
+                        onError(Throwable("Não foi possível realizar a requisição"))
+                    }
+                }
+            })
     }
 
     override fun updateUser(
@@ -87,7 +101,21 @@ class RepositoryUsuarioImpl(val usuarioService: UsuarioService) : RepositoryUsua
         onComplete: (Usuario?) -> Unit,
         onError: (Throwable?) -> Unit
     ) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        usuarioService
+            .createUser(usuario)
+            .enqueue(object : Callback<Usuario> {
+                override fun onFailure(call: Call<Usuario>, t: Throwable) {
+                    onError(t)
+                }
+
+                override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+                    if (response.isSuccessful) {
+                        onComplete(response.body())
+                    } else {
+                        onError(Throwable("Não foi possível realizar a requisição"))
+                    }
+                }
+            })
     }
 
     override fun deleteUser(
@@ -95,6 +123,20 @@ class RepositoryUsuarioImpl(val usuarioService: UsuarioService) : RepositoryUsua
         onComplete: (Usuario?) -> Unit,
         onError: (Throwable?) -> Unit
     ) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        usuarioService
+            .createUser(usuario)
+            .enqueue(object : Callback<Usuario> {
+                override fun onFailure(call: Call<Usuario>, t: Throwable) {
+                    onError(t)
+                }
+
+                override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+                    if (response.isSuccessful) {
+                        onComplete(response.body())
+                    } else {
+                        onError(Throwable("Não foi possível realizar a requisição"))
+                    }
+                }
+            })
     }
 }

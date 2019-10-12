@@ -25,7 +25,9 @@ interface UsuarioService {
     fun getAllUsers(): Call<UsuarioResponse>
 
     @POST("/cliente/add")
-    fun createUser(@Body user: Usuario)
+    fun createUser(
+        @Body user: Usuario
+    ): Call<Usuario>
 
     @PATCH("/cliente/update/{cpf}")
     fun updateUser(
@@ -36,6 +38,6 @@ interface UsuarioService {
     @DELETE("/cliente/delete/{cpf}")
     fun deleteUser(
         @Path("cpf") cpf: String
-    )
+    ): Call<Usuario>
 
 }
