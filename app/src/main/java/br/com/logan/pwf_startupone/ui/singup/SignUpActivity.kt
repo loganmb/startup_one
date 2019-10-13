@@ -8,6 +8,7 @@ import br.com.logan.pwf_startupone.R
 import br.com.logan.pwf_startupone.model.user.EnderecoUsuario
 import br.com.logan.pwf_startupone.model.user.Usuario
 import br.com.logan.pwf_startupone.model.user.UsuarioLogin
+import br.com.logan.pwf_startupone.utils.md5
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_form.*
@@ -73,12 +74,11 @@ class SignUpActivity : AppCompatActivity() {
     private fun saveInRealTimeDatabase() {
         val user = UsuarioLogin(
             txtEmail.text.toString(),
-            txtPassword.text.toString(),
+            (txtPassword.text.toString()).md5(),
             txtCpf.text.toString()
         )
 
         FirebaseDatabase.getInstance().getReference("Users")
-
             .child(FirebaseAuth.getInstance().currentUser!!.uid)
             .setValue(user)
             .addOnCompleteListener {
