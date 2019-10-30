@@ -5,16 +5,16 @@ import androidx.lifecycle.ViewModel
 import br.com.logan.pwf_startupone.model.user.Usuario
 import br.com.logan.pwf_startupone.repository.usuario.RepositoryUsuario
 
-class SingUpViewModel(
-private val repositoryUsuario: RepositoryUsuario
-) : ViewModel() {
+class SingUpViewModel
+    (val repositoryUsuario: RepositoryUsuario) : ViewModel() {
 
-    private val isLoading = MutableLiveData<Boolean>()
-    private val messageResponse = MutableLiveData<String>()
+    val isLoading = MutableLiveData<Boolean>()
+    val messageResponse = MutableLiveData<String>()
 
-    fun createUser(user: Usuario) {
+
+    fun createUser(usuario: Usuario) {
         isLoading.value = true
-        repositoryUsuario.createUser(user, {
+        repositoryUsuario.createUser(usuario, {
             isLoading.value = false
             messageResponse.value = "Dados gravados com sucesso!"
         }, {
@@ -22,5 +22,4 @@ private val repositoryUsuario: RepositoryUsuario
             messageResponse.value = it?.message
         })
     }
-
 }
