@@ -1,4 +1,4 @@
-package br.com.logan.pwf_startupone.api
+package br.com.logan.pwf_startupone.api.usuario
 
 import br.com.logan.pwf_startupone.model.HealthResponse
 import br.com.logan.pwf_startupone.model.user.Usuario

@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import br.com.logan.pwf_startupone.R
+import br.com.logan.pwf_startupone.model.user.Usuario
+import br.com.logan.pwf_startupone.model.user.UsuarioLogin
 import br.com.logan.pwf_startupone.ui.form.FormUsuarioActivity
 import br.com.logan.pwf_startupone.ui.main.MainActivity
 import br.com.logan.pwf_startupone.ui.singup.SignUpActivity
@@ -57,7 +59,10 @@ class LoginActivity : AppCompatActivity() {
     override fun onActivityResult(resquestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(resquestCode, resultCode, data)
         if (resquestCode == newUserRequestCode && resultCode == Activity.RESULT_OK) {
-            inputLoginEmail.setText(data?.getStringExtra("email"))
+
+            val user : UsuarioLogin = (data!!.getParcelableExtra("userLogin"))
+
+            inputLoginEmail.setText(user.email)
         }
     }
 }

@@ -1,12 +1,11 @@
 package br.com.logan.pwf_startupone.repository.usuario
 
-import br.com.logan.pwf_startupone.api.UsuarioService
+import br.com.logan.pwf_startupone.api.usuario.UsuarioService
 import br.com.logan.pwf_startupone.model.HealthResponse
 import br.com.logan.pwf_startupone.model.user.Usuario
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
 
 class RepositoryUsuarioImpl(val usuarioService: UsuarioService) : RepositoryUsuario {
 

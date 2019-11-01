@@ -1,11 +1,15 @@
 package br.com.logan.pwf_startupone.model.user
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Usuario (
     val cpf : String,
-    val name : String,
     val uuid: String,
+    val nome : String,
     val email : String,
-    val birth_date : String,
-    val enderecoUsuario: EnderecoUsuario
+    val data_nascimento : String,
+    val endereco: UsuarioEndereco
 
-)
+) : Parcelable

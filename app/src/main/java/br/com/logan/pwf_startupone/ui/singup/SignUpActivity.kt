@@ -5,19 +5,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import br.com.logan.pwf_startupone.R
-import br.com.logan.pwf_startupone.model.user.EnderecoUsuario
+import br.com.logan.pwf_startupone.model.user.UsuarioEndereco
 import br.com.logan.pwf_startupone.model.user.Usuario
 import br.com.logan.pwf_startupone.model.user.UsuarioLogin
 import br.com.logan.pwf_startupone.utils.md5
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_form.*
 import kotlinx.android.synthetic.main.activity_form.btCadastrar
 import kotlinx.android.synthetic.main.activity_form.btCancelar
 import kotlinx.android.synthetic.main.activity_form.txtEmail
 import kotlinx.android.synthetic.main.activity_form.txtName
 import kotlinx.android.synthetic.main.activity_form.txtPassword
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_sing_up.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -48,13 +46,14 @@ class SignUpActivity : AppCompatActivity() {
                     saveInRealTimeDatabase()
                     val userAPI = Usuario(
                         txtCpf.text.toString(),
-                        txtName.text.toString(),
                         (FirebaseAuth.getInstance().currentUser!!.uid),
+                        txtName.text.toString(),
                         txtEmail.text.toString(), "",
-                        EnderecoUsuario ("", "", "", "", "", "", "")
+                        UsuarioEndereco ("", "", "", "", "", "", "")
                     )
                     singUpViewModel.createUser(userAPI)
                 } else {
+                    mAuth.currentUser!!.delete()
                     Toast.makeText(this@SignUpActivity, it.exception?.message, Toast.LENGTH_SHORT).show()
                 }
             }
@@ -73,9 +72,8 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun saveInRealTimeDatabase() {
         val user = UsuarioLogin(
-            txtEmail.text.toString(),
-            (txtPassword.text.toString()).md5(),
-            txtCpf.text.toString()
+            txtName.text.toString(),
+            txtEmail.text.toString()
         )
 
         FirebaseDatabase.getInstance().getReference("Users")
@@ -90,6 +88,7 @@ class SignUpActivity : AppCompatActivity() {
                     setResult(RESULT_OK, returnIntent)
                     finish()
                 } else {
+                    mAuth.currentUser!!.delete()
                     Toast.makeText(this, "Erro ao criar usuario", Toast.LENGTH_SHORT).show()
                 }
             }

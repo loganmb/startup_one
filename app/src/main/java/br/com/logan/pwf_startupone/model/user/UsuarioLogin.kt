@@ -5,7 +5,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class UsuarioLogin(
-    val emailLogin: String,
-    val passwordLogin: String,
-    val cpfLogin: String
+    val nome: String,
+    val email: String
 ) : Parcelable
