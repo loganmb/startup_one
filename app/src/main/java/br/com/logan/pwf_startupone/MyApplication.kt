@@ -1,9 +1,9 @@
 package br.com.logan.pwf_startupone
 
 import android.app.Application
-import br.com.logan.pwf_startupone.di.networkModule
-import br.com.logan.pwf_startupone.di.repositoryModule
-import br.com.logan.pwf_startupone.di.viewModelModule
+import br.com.logan.pwf_startupone.utils.di.networkModule
+import br.com.logan.pwf_startupone.utils.di.repositoryModule
+import br.com.logan.pwf_startupone.utils.di.viewModelModule
 import com.facebook.stetho.Stetho
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger

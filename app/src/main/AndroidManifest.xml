@@ -10,23 +10,23 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/FullScreen">
-        <activity android:name=".ui.personal_info.BasicInfoActivity">
+        <activity android:name="br.com.logan.pwf_startupone.usuario.ui.personal_info.BasicInfoActivity">
         </activity>
-        <activity android:name=".ui.form.FormUsuarioActivity">
+        <activity android:name="br.com.logan.pwf_startupone.usuario.ui.form.FormUsuarioActivity">
         </activity>
-        <activity android:name=".ui.delete_account.DeleteAcctActivity">
+        <activity android:name="br.com.logan.pwf_startupone.usuario.ui.delete_account.DeleteAcctActivity">
         </activity>
-        <activity android:name=".ui.login.LoginActivity">
+        <activity android:name="br.com.logan.pwf_startupone.usuario.ui.login.LoginActivity">
         </activity>
-        <activity android:name=".ui.singup.SignUpActivity">
+        <activity android:name="br.com.logan.pwf_startupone.usuario.ui.singup.SignUpActivity">
         </activity>
-        <activity android:name=".ui.splash.SplashActivity">
+        <activity android:name="br.com.logan.pwf_startupone.usuario.ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.main.MainActivity"
+        <activity android:name="br.com.logan.pwf_startupone.usuario.ui.main.MainActivity"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
